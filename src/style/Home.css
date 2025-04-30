@@ -1,0 +1,43 @@
+.hooks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.hook-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hook-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hook-card h2 {
+  color: #282c34;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.hook-card p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.hook-link {
+  display: inline-block;
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.hook-link:hover {
+  color: #4fa8d1;
+  text-decoration: underline;
+}

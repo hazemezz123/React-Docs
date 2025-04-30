@@ -1,13 +1,115 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Main content container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-container {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Code snippet styling */
+.code-snippet-container {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  margin: 20px 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-snippet-header {
+  background-color: #333;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+}
+
+.code-snippet-title {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.code-snippet-content {
+  overflow-x: auto;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* Page styling */
+.page-title {
+  color: #282c34;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #61dafb;
+  padding-bottom: 10px;
+}
+
+.page-description {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.example-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.example-title {
+  color: #282c34;
+  margin-bottom: 15px;
+}
+
+.example-description {
+  margin-bottom: 20px;
+}
+
+.demo-container {
+  padding: 20px;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.copy-button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copy-button:hover {
+  background-color: #4fa8d1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
