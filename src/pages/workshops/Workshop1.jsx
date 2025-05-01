@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CodeSnippet from "../../components/CodeSnippet";
+import CodeHighlighter from "../../components/CodeHighlighter";
+import WorkshopWrapper from "../../components/WorkshopWrapper";
 import "../../style/WorkshopPage.css";
 
 const Workshop1 = () => {
@@ -38,7 +39,7 @@ ReactDOM.render(
   ];
 
   return (
-    <div className="workshop-container">
+    <WorkshopWrapper>
       <h1 className="workshop-title">Workshop 1: Setting Up a React Project</h1>
 
       <div className="workshop-description">
@@ -100,11 +101,11 @@ ReactDOM.render(
 
         <h3>src/App.js</h3>
         <p>The main component that represents your application:</p>
-        <CodeSnippet title="App.js" language="jsx" code={appCode} />
+        <CodeHighlighter title="App.js" language="jsx" code={appCode} />
 
         <h3>src/index.js</h3>
         <p>The entry point of your React application:</p>
-        <CodeSnippet title="index.js" language="jsx" code={indexCode} />
+        <CodeHighlighter title="index.js" language="jsx" code={indexCode} />
 
         <h3>public/index.html</h3>
         <p>
@@ -116,7 +117,7 @@ ReactDOM.render(
       <div className="workshop-section">
         <h2>Running the Application</h2>
         <p>To start the development server and run your React application:</p>
-        <CodeSnippet title="Terminal" language="bash" code="npm start" />
+        <CodeHighlighter title="Terminal" language="bash" code="npm start" />
         <p>
           This will start the development server and open your application in a
           browser at <code>http://localhost:3000</code>.
@@ -137,7 +138,7 @@ ReactDOM.render(
           use Bootstrap in React.
         </p>
       </div>
-    </div>
+    </WorkshopWrapper>
   );
 };
 

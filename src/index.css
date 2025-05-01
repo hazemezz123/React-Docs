@@ -4,9 +4,11 @@
 
 /* Main content container */
 .app-container {
+  background-color: var(--bg-primary);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  transition: background-color 0.3s ease;
 }
 
 .content-container {

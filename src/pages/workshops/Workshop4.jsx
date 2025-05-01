@@ -1,6 +1,7 @@
 import React, { useReducer, createContext } from "react";
 import { Link } from "react-router-dom";
-import CodeSnippet from "../../components/CodeSnippet";
+import CodeHighlighter from "../../components/CodeHighlighter";
+import WorkshopWrapper from "../../components/WorkshopWrapper";
 import "../../style/WorkshopPage.css";
 
 const Workshop4 = () => {
@@ -189,7 +190,7 @@ export default function App() {
           <code>useState</code> for managing complex state logic. It's
           especially useful when the next state depends on the previous state.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Counter with useReducer"
           language="jsx"
           code={reducerCode}
@@ -224,12 +225,12 @@ export default function App() {
           components without prop drilling. It's useful for global state that
           many components need to access.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="App.js with Context"
           language="jsx"
           code={contextCode}
         />
-        <CodeSnippet
+        <CodeHighlighter
           title="Employee.js using Context"
           language="jsx"
           code={employeeCode}
@@ -253,7 +254,7 @@ export default function App() {
           You can create a dedicated provider component to manage state and
           provide it to your components.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="CountProvider.jsx"
           language="jsx"
           code={countProviderCode}
@@ -271,7 +272,7 @@ export default function App() {
           The <code>useEffect</code> hook is perfect for handling side effects
           like data fetching.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Data Fetching with useEffect"
           language="jsx"
           code={dataFetchingCode}
@@ -294,7 +295,7 @@ export default function App() {
           </div>
         </div>
         <p>To use this example, you'll need to install Axios:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Terminal"
           language="bash"
           code="npm install axios"

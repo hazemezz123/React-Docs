@@ -5,9 +5,9 @@
 }
 
 .workshop-title {
-  color: #282c34;
+  color: var(--text-primary);
   margin-bottom: 20px;
-  border-bottom: 2px solid #61dafb;
+  border-bottom: 2px solid var(--accent-color);
   padding-bottom: 10px;
 }
 
@@ -15,78 +15,202 @@
   margin-bottom: 30px;
   line-height: 1.6;
   font-size: 1.1rem;
+  color: var(--text-secondary);
 }
 
 .workshop-section {
   margin-bottom: 40px;
-  background-color: #f8f9fa;
+  background-color: var(--bg-secondary);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  border: 1px solid var(--border-color);
 }
 
 .workshop-section h2 {
-  color: #282c34;
+  color: var(--text-primary);
   margin-bottom: 15px;
-  border-bottom: 1px solid #e1e4e8;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 8px;
 }
 
 .workshop-section h3 {
-  color: #282c34;
+  color: var(--text-primary);
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-.workshop-section ul, .workshop-section ol {
+.workshop-section ul,
+.workshop-section ol {
   margin-bottom: 15px;
+  color: var(--text-secondary);
 }
 
 .workshop-section li {
   margin-bottom: 8px;
 }
 
+.workshop-section p {
+  color: var(--text-secondary);
+}
+
 .demo-container {
-  background-color: white;
+  background-color: var(--bg-tertiary);
   padding: 20px;
-  border: 1px solid #e1e4e8;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   margin: 15px 0;
 }
 
 .file-structure {
-  background-color: #f1f1f1;
+  background-color: var(--code-bg);
+  color: var(--code-text);
   padding: 15px;
   border-radius: 4px;
-  font-family: 'Consolas', 'Monaco', monospace;
+  font-family: "Consolas", "Monaco", monospace;
   font-size: 14px;
   white-space: pre-wrap;
   word-break: break-all;
   margin: 15px 0;
+  border: 1px solid var(--border-color);
 }
 
 .note {
-  background-color: #fff3cd;
-  color: #856404;
+  background-color: rgba(233, 196, 106, 0.15);
+  color: var(--warning-color);
   padding: 10px 15px;
   border-radius: 4px;
   margin-top: 15px;
   font-size: 0.9rem;
+  border: 1px solid rgba(233, 196, 106, 0.3);
 }
 
 code {
-  background-color: #f1f1f1;
+  background-color: var(--code-bg);
+  color: var(--code-text);
   padding: 2px 4px;
   border-radius: 3px;
-  font-family: 'Consolas', 'Monaco', monospace;
+  font-family: "Consolas", "Monaco", monospace;
   font-size: 0.9em;
+}
+
+/* Code Snippet Component Styles */
+.code-snippet {
+  margin: 15px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--code-bg);
+  border: 1px solid var(--border-color);
+}
+
+.code-snippet-header {
+  background-color: var(--bg-tertiary);
+  padding: 8px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.code-snippet-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.code-snippet-content {
+  padding: 15px;
+  overflow-x: auto;
+  color: var(--code-text);
+}
+
+.code-snippet pre {
+  margin: 0;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 14px;
+}
+
+/* Code Highlighter Styles */
+.code-highlighter {
+  border: 1px solid var(--border-color);
+  margin: 1rem 0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.code-highlighter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  border-radius: 6px 6px 0 0;
+}
+
+.code-highlighter-title {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.code-highlighter-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.code-highlighter-lang {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 4px;
+}
+
+.code-copy-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.code-copy-button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.code-copy-text {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .code-copy-text {
+    display: inline;
+  }
+}
+
+/* Ensure pre tag inside the SyntaxHighlighter has proper styles */
+.code-highlighter pre {
+  margin: 0 !important;
+  border-radius: 0 0 6px 6px !important;
 }
 
 @media (max-width: 768px) {
   .workshop-container {
     padding: 15px;
   }
-  
+
   .workshop-section {
     padding: 15px;
   }

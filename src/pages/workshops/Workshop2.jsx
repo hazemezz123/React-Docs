@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CodeSnippet from "../../components/CodeSnippet";
+import CodeHighlighter from "../../components/CodeHighlighter";
+import WorkshopWrapper from "../../components/WorkshopWrapper";
 import "../../style/WorkshopPage.css";
 
 const Workshop2 = () => {
@@ -121,7 +122,7 @@ export default App;`;
         <p>
           To add Bootstrap to your React project, run the following command:
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Terminal"
           language="bash"
           code="npm install bootstrap"
@@ -129,7 +130,7 @@ export default App;`;
         <p>
           Then, import Bootstrap CSS in your <code>src/index.js</code> file:
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="index.js with Bootstrap"
           language="jsx"
           code={indexWithBootstrapCode}
@@ -139,7 +140,7 @@ export default App;`;
       <div className="workshop-section">
         <h2>Application 1: Bootstrap Button</h2>
         <p>Let's create a simple button styled with Bootstrap classes:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="App.js with Bootstrap Button"
           language="jsx"
           code={bootstrapButtonCode}
@@ -156,13 +157,13 @@ export default App;`;
       <div className="workshop-section">
         <h2>Application 2: Dynamic Button Component with Props</h2>
         <p>Now, let's create a reusable button component that accepts props:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="ButtonComponent.js"
           language="jsx"
           code={buttonComponentCode}
         />
         <p>And use it in our App component:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="App.js with ButtonComponent"
           language="jsx"
           code={appWithButtonComponentCode}
@@ -184,9 +185,13 @@ export default App;`;
           Let's create a more complex card component using Bootstrap's card
           classes:
         </p>
-        <CodeSnippet title="Card.js" language="jsx" code={cardComponentCode} />
+        <CodeHighlighter
+          title="Card.js"
+          language="jsx"
+          code={cardComponentCode}
+        />
         <p>And use it in our App component:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="App.js with Card Component"
           language="jsx"
           code={appWithCardComponentCode}

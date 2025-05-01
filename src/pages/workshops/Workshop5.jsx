@@ -1,6 +1,7 @@
 import React from "react";
-import CodeSnippet from "../../components/CodeSnippet";
 import { Link } from "react-router-dom";
+import CodeHighlighter from "../../components/CodeHighlighter";
+import WorkshopWrapper from "../../components/WorkshopWrapper";
 import "../../style/WorkshopPage.css";
 
 const Workshop5 = () => {
@@ -88,21 +89,21 @@ export default App;`;
       <div className="workshop-section">
         <h2>Installing React Router</h2>
         <p>To add React Router to your project, run the following command:</p>
-        <CodeSnippet title="Terminal" language="bash" code={installCode} />
+        <CodeHighlighter title="Terminal" language="bash" code={installCode} />
       </div>
 
       <div className="workshop-section">
         <h2>Creating Page Components</h2>
         <p>First, let's create some simple page components:</p>
-        <CodeSnippet title="Home.js" language="jsx" code={homeCode} />
-        <CodeSnippet title="About.js" language="jsx" code={aboutCode} />
-        <CodeSnippet title="Contact.js" language="jsx" code={contactCode} />
+        <CodeHighlighter title="Home.js" language="jsx" code={homeCode} />
+        <CodeHighlighter title="About.js" language="jsx" code={aboutCode} />
+        <CodeHighlighter title="Contact.js" language="jsx" code={contactCode} />
       </div>
 
       <div className="workshop-section">
         <h2>Setting Up React Router</h2>
         <p>Now, let's set up React Router in our App component:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="App.js with React Router"
           language="jsx"
           code={appCode}
@@ -160,13 +161,13 @@ export default App;`;
         <h2>Advanced Routing Techniques</h2>
         <h3>Route Parameters</h3>
         <p>You can define dynamic routes with parameters:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Dynamic Routes"
           language="jsx"
           code={`<Route path="/users/:userId" element={<UserProfile />} />`}
         />
         <p>And access the parameters in your component:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Accessing Route Parameters"
           language="jsx"
           code={`import { useParams } from 'react-router-dom';
@@ -179,7 +180,7 @@ function UserProfile() {
 
         <h3>Nested Routes</h3>
         <p>You can create nested routes for more complex UIs:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Nested Routes"
           language="jsx"
           code={`<Routes>
@@ -192,7 +193,7 @@ function UserProfile() {
 
         <h3>Protected Routes</h3>
         <p>You can create protected routes that require authentication:</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Protected Routes"
           language="jsx"
           code={`function ProtectedRoute({ children }) {

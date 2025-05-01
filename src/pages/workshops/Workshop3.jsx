@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import CodeSnippet from "../../components/CodeSnippet";
+import CodeHighlighter from "../../components/CodeHighlighter";
+import WorkshopWrapper from "../../components/WorkshopWrapper";
 import "../../style/WorkshopPage.css";
 
 const Workshop3 = () => {
@@ -130,7 +131,7 @@ export default SignupForm;`;
           differences. You can handle events using attributes like{" "}
           <code>onClick</code>, <code>onChange</code>, etc.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Basic Event Handling"
           language="jsx"
           code={eventHandlingCode}
@@ -152,7 +153,7 @@ export default SignupForm;`;
           The <code>useState</code> hook allows you to add state to functional
           components. It returns a stateful value and a function to update it.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Counter Component with useState"
           language="jsx"
           code={counterCode}
@@ -171,7 +172,7 @@ export default SignupForm;`;
       <div className="workshop-section">
         <h2>Toggle Content with useState</h2>
         <p>You can use a boolean state to toggle the visibility of content.</p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Toggle Content Component"
           language="jsx"
           code={toggleCode}
@@ -184,7 +185,7 @@ export default SignupForm;`;
             {isVisible ? "Hide" : "Show"} Content
           </button>
           {isVisible && (
-            <div className="mt-3 p-3 bg-light">
+            <div className="mt-3">
               <p>This content can be toggled on and off.</p>
             </div>
           )}
@@ -196,7 +197,7 @@ export default SignupForm;`;
         <p>
           You can use <code>useState</code> to manage form inputs.
         </p>
-        <CodeSnippet
+        <CodeHighlighter
           title="Signup Form Component"
           language="jsx"
           code={formCode}
@@ -261,13 +262,7 @@ export default SignupForm;`;
         <h3>Theme Toggler</h3>
         <div className="demo-container">
           <div
-            style={{
-              background: isDarkMode ? "#333" : "#FFF",
-              color: isDarkMode ? "#FFF" : "#333",
-              padding: "20px",
-              borderRadius: "8px",
-              transition: "all 0.3s ease",
-            }}
+           
           >
             <h4>Theme Toggle Example</h4>
             <p>This content changes appearance based on the selected theme.</p>
@@ -275,7 +270,7 @@ export default SignupForm;`;
               className={`btn ${isDarkMode ? "btn-light" : "btn-dark"}`}
               onClick={() => setIsDarkMode(!isDarkMode)}
             >
-              Switch to {isDarkMode ? "Light" : "Dark"} Mode
+              Switch to {isDarkMode ? "dark" : "light"} Mode
             </button>
           </div>
         </div>
