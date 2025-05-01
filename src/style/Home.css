@@ -9,6 +9,7 @@
 .hero-section {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   padding: 2rem 0 4rem;
   margin-bottom: 3rem;
@@ -18,7 +19,7 @@
 
 .hero-content {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 10px;
 }
 
 .hero-title {
@@ -87,7 +88,7 @@
 .hero-graphic {
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem;
 }
 
 .react-logo-container {

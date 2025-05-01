@@ -82,7 +82,31 @@
   --card-text: #000000;
   --card-bg: #f6f7f9;
 }
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
 
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary); /* Track background color */
+  border-radius: 10px; /* Rounded corners for track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color); /* Thumb color */
+  border-radius: 10px; /* Rounded corners for thumb */
+  border: 2px solid var(--bg-tertiary); /* Border around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hover); /* Thumb color on hover */
+}
+
+/* Firefox Scrollbar Support */
+html {
+  scrollbar-width: thin; /* Makes scrollbar thinner */
+  scrollbar-color: var(--accent-color) var(--bg-tertiary); /* Thumb and track colors */
+}
 /* Global Styles */
 body {
   background-color: var(--bg-primary);

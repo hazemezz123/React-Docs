@@ -12,12 +12,89 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState("");
   const navRef = useRef(null);
 
+  // Navigation items data structure
+  const navItems = [
+    {
+      id: "home",
+      label: "Home",
+      path: "/",
+      type: "link",
+    },
+    {
+      id: "hooks",
+      label: "Hooks",
+      type: "dropdown",
+      items: [
+        { label: "useState", path: "/usestate" },
+        { label: "useEffect", path: "/useeffect" },
+        { label: "useContext", path: "/usecontext" },
+        { label: "useReducer", path: "/usereducer" },
+        { label: "useRef", path: "/useref" },
+        { label: "useMemo", path: "/usememo" },
+      ],
+    },
+    {
+      id: "workshops",
+      label: "Workshops",
+      type: "dropdown",
+      items: [
+        { label: "All Workshops", path: "/workshops" },
+        { label: "1: Setting Up React", path: "/workshops/1" },
+        { label: "2: Bootstrap in React", path: "/workshops/2" },
+        { label: "3: Events & useState", path: "/workshops/3" },
+        { label: "4: Advanced State", path: "/workshops/4" },
+        { label: "5: React Router", path: "/workshops/5" },
+      ],
+    },
+    {
+      id: "designPattern",
+      label: "Design Patterns",
+      type: "dropdown",
+      items: [
+        { label: "All Design Patterns", path: "/designPattern" },
+        {
+          label: "SRP (Single Responsibility Principle)",
+          path: "/designPattern/SRP",
+        },
+        { label: "OCP (Open/Closed Principle)", path: "/designPattern/OCP" },
+        {
+          label: "LSP (Liskov Substitution Principle)",
+          path: "/designPattern/LSP",
+        },
+        {
+          label: "ISP (Interface Segregation Principle)",
+          path: "/designPattern/ISP",
+        },
+        {
+          label: "DIP (Dependency Inversion Principle)",
+          path: "/designPattern/DIP",
+        },
+        {
+          label: "Factory & Singleton",
+          path: "/designPattern/factoryAndSingleton",
+        },
+        {
+          label: "Adapter & Composite",
+          path: "/designPattern/adapterAndComposite",
+        },
+        { label: "Template Method", path: "/designPattern/templateMethod" },
+      ],
+    },
+    {
+      id: "about",
+      label: "About me ?",
+      path: "/about",
+      type: "link",
+    },
+  ];
+
   // Determine active section based on current path
   const getActiveSection = () => {
     const path = location.pathname;
     if (path === "/") return "home";
     if (path.startsWith("/use")) return "hooks";
     if (path.startsWith("/workshops")) return "workshops";
+    if (path.startsWith("/designPattern")) return "designPattern";
     if (path === "/about") return "about";
     return "";
   };
@@ -53,7 +130,7 @@ const Navbar = () => {
 
   // Toggle dropdown
   const toggleDropdown = (dropdown) => {
-      setActiveDropdown(activeDropdown === dropdown ? "" : dropdown);
+    setActiveDropdown(activeDropdown === dropdown ? "" : dropdown);
   };
 
   // Scroll to top when clicking a link
@@ -61,18 +138,45 @@ const Navbar = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Render dropdown content
+  const renderDropdownContent = (item) => {
+    return (
+      <div
+        className={`${styles.dropdownContent} ${
+          activeDropdown === item.id ? styles.dropdownVisible : ""
+        }`}
+      >
+        <div className={styles.dropdownArrow}></div>
+        {item.items.map((dropdownItem, index) => (
+          <Link
+            key={index}
+            to={dropdownItem.path}
+            className={`${styles.dropdownLink} ${
+              location.pathname === dropdownItem.path
+                ? styles.dropdownLinkActive
+                : ""
+            }`}
+            onClick={scrollToTop}
+          >
+            {dropdownItem.label}
+          </Link>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <nav className={styles.navbar} ref={navRef}>
       <div className={styles.navbarContainer}>
         <div className={styles.navbarLeft}>
           <Link to="/" className={styles.navbarLogo} onClick={scrollToTop}>
-          <img
-            src={reactLogo}
-            alt="React Logo"
+            <img
+              src={reactLogo}
+              alt="React Logo"
               className={styles.logoImage}
-          />
+            />
             <span className={styles.logoText}>React Guide</span>
-        </Link>
+          </Link>
         </div>
 
         <ul
@@ -100,246 +204,78 @@ const Navbar = () => {
             )}
           </button>
 
-          <li className={styles.navItem}>
-            <Link
-              to="/"
-              className={`${styles.navLink} ${
-                activeSection === "home" ? styles.navLinkActive : ""
-              }`}
-              onClick={scrollToTop}
-            >
-              Home
-            </Link>
-          </li>
-
-          <li className={styles.navItem}>
-            <span
-              className={`${styles.navLink} ${
-                activeSection === "hooks" ? styles.navLinkActive : ""
-              }`}
-              onClick={() => toggleDropdown("hooks")}
-            >
-              Hooks
-              <FaChevronDown
-                className={`${styles.dropdownIcon} ${
-                  activeDropdown === "hooks" ? styles.dropdownIconActive : ""
-                }`}
-              />
-            </span>
-            <div
-              className={`${styles.dropdownContent} ${
-                activeDropdown === "hooks" ? styles.dropdownVisible : ""
-              }`}
-            >
-              <div className={styles.dropdownArrow}></div>
-              <Link
-                to="/usestate"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/usestate"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                useState
-              </Link>
-              <Link
-                to="/useeffect"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/useeffect"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                useEffect
-              </Link>
-              <Link
-                to="/usecontext"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/usecontext"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                useContext
-              </Link>
-              <Link
-                to="/usereducer"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/usereducer"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                useReducer
-              </Link>
-              <Link
-                to="/useref"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/useref"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                useRef
-              </Link>
-              <Link
-                to="/usememo"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/usememo"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                useMemo
-              </Link>
-            </div>
-          </li>
-
-          <li className={styles.navItem}>
-            <span
-              className={`${styles.navLink} ${
-                activeSection === "workshops" ? styles.navLinkActive : ""
-              }`}
-              onClick={() => toggleDropdown("workshops")}
-            >
-              Workshops
-              <FaChevronDown
-                className={`${styles.dropdownIcon} ${
-                  activeDropdown === "workshops"
-                    ? styles.dropdownIconActive
-                    : ""
-                }`}
-              />
-            </span>
-            <div
-              className={`${styles.dropdownContent} ${
-                activeDropdown === "workshops" ? styles.dropdownVisible : ""
-              }`}
-            >
-              <div className={styles.dropdownArrow}></div>
-              <Link
-                to="/workshops"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/workshops"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                All Workshops
-              </Link>
-              <Link
-                to="/workshops/1"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/workshops/1"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                1: Setting Up React
-              </Link>
-              <Link
-                to="/workshops/2"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/workshops/2"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                2: Bootstrap in React
-              </Link>
-              <Link
-                to="/workshops/3"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/workshops/3"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                3: Events & useState
-              </Link>
-              <Link
-                to="/workshops/4"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/workshops/4"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                4: Advanced State
-              </Link>
-              <Link
-                to="/workshops/5"
-                className={`${styles.dropdownLink} ${
-                  location.pathname === "/workshops/5"
-                    ? styles.dropdownLinkActive
-                    : ""
-                }`}
-                onClick={scrollToTop}
-              >
-                5: React Router
-              </Link>
-            </div>
-          </li>
-
-          <li className={styles.navItem}>
-            <Link
-              to="/about"
-              className={`${styles.navLink} ${
-                activeSection === "about" ? styles.navLinkActive : ""
-              }`}
-              onClick={scrollToTop}
-            >
-              About me ?
-            </Link>
-          </li>
+          {/* Navigation Items */}
+          {navItems.map((item) => (
+            <li key={item.id} className={styles.navItem}>
+              {item.type === "link" ? (
+                <Link
+                  to={item.path}
+                  className={`${styles.navLink} ${
+                    activeSection === item.id ? styles.navLinkActive : ""
+                  }`}
+                  onClick={scrollToTop}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <>
+                  <span
+                    className={`${styles.navLink} ${
+                      activeSection === item.id ? styles.navLinkActive : ""
+                    }`}
+                    onClick={() => toggleDropdown(item.id)}
+                  >
+                    {item.label}
+                    <FaChevronDown
+                      className={`${styles.dropdownIcon} ${
+                        activeDropdown === item.id
+                          ? styles.dropdownIconActive
+                          : ""
+                      }`}
+                    />
+                  </span>
+                  {renderDropdownContent(item)}
+                </>
+              )}
+            </li>
+          ))}
         </ul>
 
         <div className={styles.navbarRight}>
-        {/* Theme toggle button */}
-        <button
-          onClick={toggleTheme}
+          {/* Theme toggle button */}
+          <button
+            onClick={toggleTheme}
             className={`${styles.themeToggle} ${
               theme === "dark" ? styles.themeToggleActive : ""
             }`}
-          aria-label={
-            theme === "light" ? "Switch to dark mode" : "Switch to light mode"
-          }
-        >
+            aria-label={
+              theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+            }
+          >
             {theme === "light" ? (
               <FaMoon style={{ color: "#6a5acd" }} />
             ) : (
               <FaSun style={{ color: "#FFA500" }} />
             )}
-        </button>
+          </button>
 
-        {/* Mobile menu button */}
+          {/* Mobile menu button */}
           <div className={styles.menuIcon} onClick={toggleMenu}>
             <div
               className={`${styles.menuIconBar} ${
                 isMenuOpen ? styles.menuIconBarFirst : ""
               }`}
-          ></div>
-          <div
+            ></div>
+            <div
               className={`${styles.menuIconBar} ${
                 isMenuOpen ? styles.menuIconBarSecond : ""
               }`}
-          ></div>
-          <div
+            ></div>
+            <div
               className={`${styles.menuIconBar} ${
                 isMenuOpen ? styles.menuIconBarLast : ""
               }`}
-          ></div>
+            ></div>
           </div>
         </div>
       </div>

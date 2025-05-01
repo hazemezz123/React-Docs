@@ -193,7 +193,14 @@ code {
 .code-copy-text {
   display: none;
 }
-
+.console-output {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 15px;
+  border-radius: 4px;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 14px;
+}
 @media (min-width: 768px) {
   .code-copy-text {
     display: inline;

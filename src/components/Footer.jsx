@@ -134,8 +134,8 @@ const Footer = () => {
           </p>
           <ul className={styles.footerLinks}>
             <li className={styles.footerLink}>
-              <a href="mailto:contact@reactguide.com">
-                <FaEnvelope /> contact@reactguide.com
+              <a href="mailto:hazemezz988@gmail.com">
+                <FaEnvelope /> hazemezz988@gmail.com
               </a>
             </li>
           </ul>

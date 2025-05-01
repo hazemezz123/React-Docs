@@ -29,6 +29,17 @@ import Workshop3 from "./pages/workshops/Workshop3";
 import Workshop4 from "./pages/workshops/Workshop4";
 import Workshop5 from "./pages/workshops/Workshop5";
 
+// Design Patterns Pages
+import DesignPattern from "./pages/designPattern/DesignPattern";
+import SRP from "./pages/designPattern/SRP";
+import OCP from "./pages/designPattern/OCP";
+import LSP from "./pages/designPattern/LSP";
+import ISP from "./pages/designPattern/ISP";
+import DIP from "./pages/designPattern/DIP";
+import FactoryAndSingleton from "./pages/designPattern/FactoryAndSingleton";
+import AdapterAndComposite from "./pages/designPattern/AdapterAndComposite";
+import TemplateMethod from "./pages/designPattern/TemplateMethod";
+
 const App = () => {
   return (
     <ThemeProvider>
@@ -55,6 +66,26 @@ const App = () => {
               <Route path="/workshops/3" element={<Workshop3 />} />
               <Route path="/workshops/4" element={<Workshop4 />} />
               <Route path="/workshops/5" element={<Workshop5 />} />
+
+              {/* Design Patterns Routes */}
+              <Route path="/designPattern" element={<DesignPattern />} />
+              <Route path="/designPattern/SRP" element={<SRP />} />
+              <Route path="/designPattern/OCP" element={<OCP />} />
+              <Route path="/designPattern/LSP" element={<LSP />} />
+              <Route path="/designPattern/ISP" element={<ISP />} />
+              <Route path="/designPattern/DIP" element={<DIP />} />
+              <Route
+                path="/designPattern/factoryAndSingleton"
+                element={<FactoryAndSingleton />}
+              />
+              <Route
+                path="/designPattern/adapterAndComposite"
+                element={<AdapterAndComposite />}
+              />
+              <Route
+                path="/designPattern/templateMethod"
+                element={<TemplateMethod />}
+              />
 
               {/* About Page */}
               <Route path="/about" element={<AboutPage />} />
